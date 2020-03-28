@@ -91,7 +91,18 @@ abstract: |
     Different countries … # more stuff here
 urlcolor: blue</code></pre>
 	</section>
-      </div>
+
+	<section><h1>Set stuff up</h1>
+	  <pre><code  data-line-numbers="1,9|2-4|5-8">```{r setup, include=FALSE}
+library(tidyr)
+library(ggplot2)
+library(ggthemes)
+library(dplyr)
+base <- "https://raw.githubusercontent.com/longURL_"
+world.confirmed &lt;- read.csv(paste0(base,"confirmed_global.csv"), sep=',',head=T)
+world.confirmed &lt;- gather( world.confirmed, Date, Cases, X1.22.20:X3.27.20)
+``` </code></pre>
+</div>
     </div>
     
     <script src="js/reveal.js"></script>
