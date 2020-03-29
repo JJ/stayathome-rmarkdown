@@ -101,7 +101,19 @@ library(dplyr)
 base <- "https://raw.githubusercontent.com/longURL_"
 world.confirmed &lt;- read.csv(paste0(base,"confirmed_global.csv"), sep=',',head=T)
 world.confirmed &lt;- gather( world.confirmed, Date, Cases, X1.22.20:X3.27.20)
-``` </code></pre>
+	``` </code></pre>
+	</section>
+
+	<section><h1><strong>Literary</strong> proramming</h1>
+	  <pre><code data-line-numbers='1,8|3-5'>Let's first check what's the reported case fatality ratio for …
+
+```{r cfr,echo=FALSE,message=FALSE}
+world.data$CFR &lt;- world.data$Deaths / world.data$Cases
+world.data.filtered.1k &lt;- world.data[ world.data$Cases > 1000, ]
+world.data.filtered.1k %>% group_by(Country.Region,Province.State) %>% summarize( max.CFR = max(CFR), min.CFR = min(CFR), last.CFR = last(CFR))  %>% arrange( - last.CFR) %>% rmarkdown::paged_table()
+```
+
+    The countries with the lowest CFR have peaks in the area of 0.3%, with some cases …</-></code>
 </div>
     </div>
     
