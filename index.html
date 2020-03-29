@@ -101,11 +101,11 @@ library(dplyr)
 base <- "https://raw.githubusercontent.com/longURL_"
 world.confirmed &lt;- read.csv(paste0(base,"confirmed_global.csv"), sep=',',head=T)
 world.confirmed &lt;- gather( world.confirmed, Date, Cases, X1.22.20:X3.27.20)
-	``` </code></pre>
+``` </code></pre>
 	</section>
 
-	<section><h1><strong>Literary</strong> proramming</h1>
-	  <pre><code data-line-numbers='1,8|3-5'>Let's first check what's the reported case fatality ratio for …
+	<section><h1><strong>Literate</strong> programming</h1>
+	  <pre><code data-line-numbers='1,9|3-6'>Let's first check what's the reported case fatality ratio for …
 
 ```{r cfr,echo=FALSE,message=FALSE}
 world.data$CFR &lt;- world.data$Deaths / world.data$Cases
@@ -113,8 +113,34 @@ world.data.filtered.1k &lt;- world.data[ world.data$Cases > 1000, ]
 world.data.filtered.1k %>% group_by(Country.Region,Province.State) %>% summarize( max.CFR = max(CFR), min.CFR = min(CFR), last.CFR = last(CFR))  %>% arrange( - last.CFR) %>% rmarkdown::paged_table()
 ```
 
-    The countries with the lowest CFR have peaks in the area of 0.3%, with some cases …</-></code>
-</div>
+The countries with the lowest CFR have peaks in the area of 0.3%, …</code></pre>
+	</section>
+
+	<section><h1>Introduced by <strong>Donald Knuth</strong></h1>
+	  <h2 class='fragment'><strong>WEB</strong> language</h2>
+	  <pre><code data-line-numbers='1,12|3|4-10'>@ When you type a word,…
+@s wordtype int
+@&lt;Type...@>=
+typedef enum@+{@!no_type,@!motion_type,@!object_type,
+   @!action_type,@!message_type}@!wordtype;
+typedef struct {
+  char text[6]; /* string of length at most 5 */
+  char word_type; /* a |wordtype| */
+  char meaning;
+} hash_entry;
+
+@ Here is the subroutine that puts words …</code></pre>
+	</section>
+
+	<section data-background='https://live.staticflickr.com/1401/1255192305_8e2283e3de_k_d.jpg'>
+	  <h1><strong>Tangle</strong> for compilable source</h1>
+	  <h1><strong>Weave</strong> for documentation</h1>
+	</section>
+
+	<section><h1><code>knitr</code> tangles/weaves RMarkdown</h1>
+	  <h2 class='fragment'>Command line or RStudio</h2>
+	</section>
+      </div>
     </div>
     
     <script src="js/reveal.js"></script>
